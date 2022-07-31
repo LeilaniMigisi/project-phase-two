@@ -1,43 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState ,useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import MovieList from '/home/leilani/project-phase-two/src/components/MovieList.js';
-import MovieListHeading from '/home/leilani/project-phase-two/src/components/MovieListHeading.js';
-import SearchBox from '/home/leilani/project-phase-two/src/components/SearchBox.js';
-import AddFavourites from '/home/leilani/project-phase-two/src/components/AddFavourite.js';
-import RemoveFavourites from './components/RemoveFavourites';
+import '/home/leilani/project-phase-two/src/App.css';
+import MovieList from "/home/leilani/project-phase-two/src/components/MovieList.js";
+import MovieListHeading from "/home/leilani/project-phase-two/src/components/MovieListHeading.js";
+import SearchBox from "/home/leilani/project-phase-two/src/components/SearchBox.js";
+import AddFavourites from "/home/leilani/project-phase-two/src/components/AddFavourite.js";
+import RemoveFavourites from "./components/RemoveFavourites";
+
 
 const App = () => {
-	const [movies, setMovies] = useState([]);
-	const [favourites, setFavourites] = useState([]);
-	const [searchValue, setSearchValue] = useState('');
 
-	const getMovieRequest = async (searchValue) => {
-		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
+  const [movies, setMovies] = useState([]);
+  const [favourites, setFavourites] = useState([])
+  const [searchValue, setSearchValue] = useState([])
+  
+  useEffect(() => {
+    fetch('http://localhost:3000/movies')
+    .then((res) => res.json())
+    .then((data) => setMovies(data))
+},[searchValue])
 
-		const response = await fetch(url);
-		const responseJson = await response.json();
 
-		if (responseJson.Search) {
-			setMovies(responseJson.Search);
-		}
-	};
-
-	useEffect(() => {
-		getMovieRequest(searchValue);
-	}, [searchValue]);
-
-	useEffect(() => {
-		const movieFavourites = JSON.parse(
-			localStorage.getItem('react-movie-app-favourites')
-		);
-
-		if (movieFavourites) {
-			setFavourites(movieFavourites);
-		}
-	}, []);
-
-	const saveToLocalStorage = (items) => {
+const saveToLocalStorage = (items) => {
 		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
 	};
 
@@ -56,8 +40,12 @@ const App = () => {
 		saveToLocalStorage(newFavouriteList);
 	};
 
-	return (
-		<div className='container-fluid movie-app'>
+  
+
+ 
+ 
+return (
+  <div className='container-fluid movie-app'>
 			<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Movies' />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
