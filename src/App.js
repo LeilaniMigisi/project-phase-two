@@ -11,11 +11,15 @@ const App = () => {
   const [movies, setMovies] = useState([]);
     const [favourites, setFavourites] = useState([]);
     const [searchValue, setSearchValue] = useState([]);
-    useEffect(() => {
-        fetch('  http://localhost:5000/movies')
+    
+	useEffect(() => {
+        fetch('  http://localhost:3000/movies')
             .then((res) => res.json())
             .then((data) => setMovies(data))
+			//setMovies(data)
+			console.log(movies)
     }, [searchValue]);
+
 const saveToLocalStorage = (items) => {
         localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
 };
