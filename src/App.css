@@ -11,7 +11,7 @@ body {
 	
   }
   .movie-app {
-	text-align: center;
+	text-align: left;
 	margin:auto;
   }
   
@@ -34,7 +34,7 @@ body {
   
   .overlay {
 	position: absolute;
-	background: black;
+	background: rgb(248, 243, 243);
 	width : 100%;
 	transition : 0.5s ease;
 	opacity: 0;
