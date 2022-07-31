@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import MovieList from './components/MovieList';
-import MovieListHeading from './components/MovieListHeading';
-import SearchBox from './components/SearchBox';
-import AddFavourites from './components/AddFavourites';
+import MovieList from '/home/leilani/project-phase-two/src/components/MovieList.js';
+import MovieListHeading from '/home/leilani/project-phase-two/src/components/MovieListHeading.js';
+import SearchBox from '/home/leilani/project-phase-two/src/components/SearchBox.js';
+import AddFavourites from '/home/leilani/project-phase-two/src/components/AddFavourite.js';
 import RemoveFavourites from './components/RemoveFavourites';
 
 const App = () => {
