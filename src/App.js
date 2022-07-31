@@ -7,27 +7,32 @@ import SearchBox from "./components/SearchBox";
 import AddFavourites from "./components/AddFavourites";
 import RemoveFavourites from "./components/RemoveFavourites";
 
+
 const App = () => {
   const [movies, setMovies] = useState([]);
     const [favourites, setFavourites] = useState([]);
     const [searchValue, setSearchValue] = useState([]);
-    
-	useEffect(() => {
+
+
+    useEffect(() => {
         fetch('  http://localhost:3000/movies')
             .then((res) => res.json())
             .then((data) => setMovies(data))
-			//setMovies(data)
-			console.log(movies)
     }, [searchValue]);
+
 
 const saveToLocalStorage = (items) => {
         localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
 };
+    
+    
     const addFavouriteMovie = (movie) => {
         const newFavouriteList = [...favourites, movie];
         setFavourites(newFavouriteList);
         saveToLocalStorage(newFavouriteList);
     };
+
+
     const removeFavouriteMovie = (movie) => {
         const newFavouriteList = favourites.filter(
             (favourite) => favourite.imdbID !== movie.imdbID
@@ -35,6 +40,8 @@ const saveToLocalStorage = (items) => {
         setFavourites(newFavouriteList);
         saveToLocalStorage(newFavouriteList);
     };
+
+
     return (
         <>
   <div className='container-fluid movie-app'>
