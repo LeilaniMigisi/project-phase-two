@@ -16,7 +16,7 @@ const App = () => {
   const [searchValue, setSearchValue] = useState([])
   
   useEffect(() => {
-    fetch("https://buttercup-steep-carol.glitch.me")
+    fetch("https://buttercup-steep-carol.glitch.me/movies")
     .then((res) => res.json())
     .then((data) => setMovies(data))
     console.log()

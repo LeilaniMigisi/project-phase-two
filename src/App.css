@@ -1,45 +1,41 @@
 body {
-	background-color: rgba(0, 1, 5, 0.884);
-	color :rgb(252, 249, 246)
+	background: #000303;
+	color: #ffffff;
+	position: centre; 
+	align: center;
   }
   
-  .movie-app > .row {
-	overflow-x: auto;
-	flex-wrap: nowrap;
-	overflow: auto;
-	
-	
-  }
-  .movie-app {
-	text-align: left;
-	margin:auto;
-  }
+  .movie-app  .row {
+   overflow-x:auto;
+   display: flex;
+   flex-wrap: wrap ;
+   text-align: center;
+   }
   
-  .image-container {
-	position :relative;
+  
+  .image-container{
+	position: centre;
 	transition: transform 0.2s;
-	float: left;
-  
-  
+	text-align: center;
+	
   }
-  
-  .image-container:hover {
-	cursor: pointer;
+  .image-container:hover{
+	cursor: pointer ;
 	transform: scale(1.1);
-  }
-  
+	text-align: center;
+  }   
   .image-container:hover .overlay{
 	opacity: 1;
   }
   
   .overlay {
 	position: absolute;
-	background: rgb(248, 243, 243);
-	width : 100%;
-	transition : 0.5s ease;
+	bottom: 0;
+	padding: 12px ;
+	text-align: center;
 	opacity: 0;
-	bottom:0;
-	font-size: 20px;
-	padding: 20px;
+	font-size: 20px ;
+	transition: 0.5s ease;
+	width:100%;
 	text-align: center;
   }
