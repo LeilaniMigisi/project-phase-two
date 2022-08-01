@@ -16,7 +16,7 @@ const App = () => {
   const [searchValue, setSearchValue] = useState([])
   
   useEffect(() => {
-    fetch(`localhost:3000/movie/`)
+    fetch("https://buttercup-steep-carol.glitch.me")
     .then((res) => res.json())
     .then((data) => setMovies(data))
     console.log()
